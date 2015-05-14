@@ -1,6 +1,14 @@
 \chapter{Increment / Decrement Operator}
-I have always been confused by the way increment/decrement operators work. I am familiar with what they do: to increment or decrement values. What I never quite understood was the difference between pre-inc
+I have always been confused by the way increment/decrement operators work. I am familiar with what they do: to increment or decrement values. What I never quite understood was the difference between post and pre-increment or decrement.
+To illustrate this important yet somehow hidden point, lets evaluate an example code:
 
 \begin{lstlisting}
-
+int i = 0;
+if(i++ == 1) {
+	std::cout << "i++ is equal to 1" << std::endl;
+}
+//here, the value of i is 1 for sure
+if(++i == 2) {
+	std::cout << "++i is equal to 2" << std::endl;
+}
 \end{lstlisting}
