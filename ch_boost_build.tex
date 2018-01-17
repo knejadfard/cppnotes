@@ -1,7 +1,0 @@
-\chapter{Building the Boost Library}
-
-In order to build the Boost library, the tool \textbf{b2} should be used. Assuming \textbf{clang++} is in the path and points to a working compiler location, in order to build Boost using Clang++ and using libstdc++ (I know, this is a GNU standard library):
-
-\begin{lstlisting}
-./b2 -a toolset=clang cxxflags="-std=c++17 -stdlib=libstdc++" --prefix=/usr/local/boost-1.66.0-rc2
-\end{lstlisting}
