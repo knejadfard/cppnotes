@@ -1,0 +1,16 @@
+\chapter{Compiling a Project With Boost::Beast Dependency}
+
+Assuming the Boost library has been installed such that all of the necessary library and include files are in PATH, the following CMake file can be used:
+\begin{quote}
+  1 cmake_minimum_required(VERSION 3.5)
+  2 project(beast_test)
+  3 
+  4 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -stdlib=libc++")
+  5 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lc -lc++ -lc++abi -lpthread")
+  6 
+  7 set(INCLUDES "")
+  8 include_directories("${INCLUDES}")
+  9 
+ 10 add_executable(beast_test "src/main.cpp")
+ 11 target_link_libraries(beast_test "libboost_system.so")
+\end{quote}
