@@ -3,7 +3,7 @@
 In order to build the Boost library, the tool \textbf{b2} should be used. Assuming \textbf{clang++} is in the path, in order to build Boost using Clang++ and libc++:
 
 \begin{lstlisting}
-./b2 toolset=clang cxxflags="-stdlib=libc++ -std=c++14" linkflags="-stdlib=libc++ -std=c++14" -j 8
+./b2 toolset=clang cxxflags="-stdlib=libc++ -std=c++14" linkflags="-stdlib=libc++" -j 8
 \end{lstlisting}
 
 At the moment (Boost version 1.66.0), compilation cannot be done with the "-std=c++17" flag, because the \textit{auto_ptr} class has been removed but parts of Boost are still using it. \textit{auto_ptr} had been deprecated since C++11 and finally removed in C++17.
@@ -13,9 +13,22 @@ real	116m2.628s
 user	474m24.432s
 sys	90m33.540s
 
-In total, there were 54 failed targets due to missing pyconfig.h header, which is due to not having python3.5-dev installed.
+In total, there were 54 failed targets due to missing pyconfig.h header, which is due to not having python3.5-dev installed. After installing, I still had to execute the following:
+\begin{lstlisting}
+export CPLUS_INCLUDE_PATH=/usr/include/python3.5
+\end{lstlisting}
 
 After installing the needed package, and re-running the build script, it took the following times:
 real	7m17.312s
 user	29m13.704s
 sys	5m40.344s
+
+In order to install the built libraries, as root and after making sure CXX is set to clang++, I executed the following:
+\begin{lstlisting}
+./b2 install toolset=clang cxxflags="-std=c++14 -stdlib=libc++" linkflags="-stdlib=libc++" --prefix=/usr/local
+\end{lstlisting}
+
+Also, last but not least, when building a project that uses Boost::Log, I encountered linker errors that I could not exactly figure out why they are happening, as it seems like I do have the shared object files of the log library. However, after modifying boost/config/user.hpp and adding the following line, then rebuilding boost, I seem to be able to correctly link:
+\begin{lstlisting}
+#define BOOST_LOG_DYN_LINK
+\end{lstlisting}
