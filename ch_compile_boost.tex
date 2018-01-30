@@ -32,3 +32,29 @@ Also, last but not least, when building a project that uses Boost::Log, I encoun
 \begin{lstlisting}
 #define BOOST_LOG_DYN_LINK
 \end{lstlisting}
+
+Update: later on, I was trying to see if I can link Boost libraries statically, as this reduced the need to deploy the built Boost libraries along with my program, if there has been library changes. To do this, I re-built Boost using the following:
+\begin{lstlisting}
+./b2 toolset=clang link=static cxxflags="-stdlib=libc++ -std=c++14" linkflags="-stdlib=libc++" -j 8
+\end{lstlisting}
+
+Then, in order to force a static link of Boost in my project, I used the following CMake file:
+\begin{lstlisting}
+set("${TARGET_NAME}" PROPERTY CXX_STANDARD 14)
+
+add_executable("${TARGET_NAME}" "src/main.cpp")
+
+target_include_directories("${TARGET_NAME}" PUBLIC "include" ${Boost_INCLUDE_DIRS})
+target_compile_options("${TARGET_NAME}" PUBLIC "-stdlib=libc++")
+
+target_link_libraries("${TARGET_NAME}" PUBLIC -nodefaultlibs -lc++ -lc++abi -lc -lm -lgcc_s -lgcc)
+
+set(Boost_USE_STATIC_LIBS ON)
+find_package(Boost 1.66.0 EXACT REQUIRED COMPONENTS thread system log_setup log filesystem)
+message(${Boost_LIBRARIES})
+target_link_libraries("${TARGET_NAME}" PUBLIC ${Boost_LIBRARIES})
+
+target_link_libraries("${TARGET_NAME}" PUBLIC -lpthread)
+\end{lstlisting}
+
+At first, there were some linker errors with references to code in the filesystem library. It turns out, the log library depends on filesystem and therefore, the filesystem library must be linked after the log library.
