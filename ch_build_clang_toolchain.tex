@@ -36,7 +36,7 @@ SOURCES="src/main.cpp"
 clang++ -o ./build/a.out -I "${LIBCPP_INCLUDE_DIR}" -L "${LIBCPP_LIB_DIR}" -L "${LIBCPPABI_LIB_DIR}" ${CXX_FLAGS} ${SOURCES}
 \end{lstlisting}
 
-Running `ldd` on the produced executable will show the dynamic libraries it needs to run:
+Running \lstinline[language=bash]|ldd| on the produced executable will show the dynamic libraries it needs to run:
 
 \begin{lstlisting}[language=bash]
     linux-vdso.so.1 =>  (0x00007fffa4997000)
@@ -48,9 +48,9 @@ Running `ldd` on the produced executable will show the dynamic libraries it need
     /lib64/ld-linux-x86-64.so.2 (0x00007f70064f3000)
 \end{lstlisting}
 
-So, it turns out, the shared libraries for libc++ and libc++abi are not in a path that they should be, like the other shared libraries. I think the reason is due to the fact that I have installed the shared libraries in my home folder. Therefore, in order to get this to work properly, I have to set the environment variable LD_LIBRARY_PATH to a directory where it includes these shared libraries.
+So, it turns out, the shared libraries for libc++ and libc++abi are not in a path that they should be, like the other shared libraries. I think the reason is due to the fact that I have installed the shared libraries in my home folder. Therefore, in order to get this to work properly, I have to set the environment variable \lstinline[language=bash]|LD_LIBRARY_PATH| to a directory where it includes these shared libraries.
 
-Aside from using the LD_LIBRARY_PATH variable, during compilation, the flag \lstinline[language=bash]|-Wl,-rpath,/abs/path/to/libdir| can be used to provide an absolute path to the location of the shared libraries that may be needed.As a slightly better alternative, the symbol \lstinline[language=bash]|$ORIGIN| can be used to build the path relative to the executable's location. As an example, to inform ld to lookup the lib directory that is alongside the executable, the following flag can be used: \lstinline[language=bash]|Wl,-rpath,$ORIGIN/lib|
+Aside from using the \lstinline[language=bash]|LD_LIBRARY_PATH| variable, during compilation, the flag \lstinline[language=bash]|-Wl,-rpath,/abs/path/to/libdir| can be used to provide an absolute path to the location of the shared libraries that may be needed.As a slightly better alternative, the symbol \lstinline[language=bash]|$ORIGIN| can be used to build the path relative to the executable's location. As an example, to inform ld to lookup the lib directory that is alongside the executable, the following flag can be used: \lstinline[language=bash]|Wl,-rpath,$ORIGIN/lib|
 It is important to use single quotes so that \lstinline[language=bash]|$ORIGIN| does not get resolved when executing the command. The proper value for origin is resolved at runtime.
 
 In order for the linker to be able to see where libraries are located, the configuration in /etc/ld.so.conf is used. In Ubuntu, there is \lstinline[language=bash]|/etc/ld.so.conf.d/| directory that has a bunch of different configurations. Long story short, adding shared libraries to \lstinline[language=bash]|/usr/local/lib| will make sure the linker sees these libraries because this directory is in the default configurations of \lstinline[language=bash]|/etc/ld.so.conf.d|.
