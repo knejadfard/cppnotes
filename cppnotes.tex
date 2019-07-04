@@ -4,8 +4,9 @@
 \usepackage{listings}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 
-
+%-------------------------------------------------------------------------------
 % Configuration for source code highlighting
+%-------------------------------------------------------------------------------
 \lstset{
     language=C++,
     basicstyle=\ttfamily,
@@ -37,6 +38,7 @@
     frame=single,
     tabsize=3
 }
+%-------------------------------------------------------------------------------
 
 \title{C++ Notes}
 \author{Kian Nejadfard}
@@ -44,11 +46,19 @@
 \begin{document}
 \maketitle
 
-% Chapters are included here
-% rule for file names: ch_any_name.txt
-\input{ch_build_clang_toolchain.tex}
-\input{ch_incr_decr.tex}
-\input{ch_compile_boost.tex}
-\input{ch_compiling_with_boost_beast_dependency.tex}
+%-------------------------------------------------------------------------------
+% Chapters are included one-by-one here.
+% Rule for file names: ch_any_name.tex
+%-------------------------------------------------------------------------------
+\chapter{Compiling Things}
+\newpage
+    \input{ch_build_clang_toolchain.tex}
+    \input{ch_compile_boost.tex}
+    \input{ch_compiling_with_boost_beast_dependency.tex}
+\chapter{The C++ Language}
+\newpage
+    \input{ch_incr_decr.tex}
+    \input{ch_memory_safety.tex}
+%-------------------------------------------------------------------------------
 
 \end{document}
