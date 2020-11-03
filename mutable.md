@@ -1,23 +1,22 @@
 # The `mutable` Keyword
-Found this good example [here](https://stackoverflow.com/questions/15999123/const-before-parameter-vs-const-after-function-name-c/15999152#15999152):
 ```
-struct X {
+struct Type {
     void func1() const {
-        x = 42; // ERROR: this is a const member function
-        y = 42; // OK: y is mutable
+        val1 = 2; // ERROR: assignment of member ‘Type::val1’ in read-only object
+        val2 = 2; // OK
     }
 
-    void func2() {
-        x = 42; // OK: non-const member function
-        y = 42; // OK: non-const member function
-    }
-
-    int x;
-    mutable int y;
+    int val1;
+    mutable int val2;
 };
+
+int main() {
+    Type t{};
+    return 0;
+}
 ```
 
-A very good use case for `mutable` is when dealing with `std::mutex` in an const object. Locking and releasing the lock on a mutex basically breaks the `const` contract. In this case, declaring the mutex instance as `mutable` allows for locking/unlocking the mutex while still keeping everything else in compliance with the `const` contract.
+A very good use case for `mutable` is when dealing with `std::mutex` in a const object (either because the object itself is declared as const or just for a const member function). Locking and releasing the lock on a mutex basically breaks the `const` contract. In this case, declaring the mutex instance as `mutable` allows for locking/unlocking the mutex while still keeping everything else in compliance with the `const` contract.
 
 ## Mutable Lambdas
 Arguments captured by value cannot be modified in a lambda. Since C++11, the `mutable` can be used on the lambda to allow this:
