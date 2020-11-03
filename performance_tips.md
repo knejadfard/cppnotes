@@ -57,3 +57,36 @@ int main() {
 ```
 
 This way, we are able to set the value of `s` right when we construct it:
+
+## Always Initialize When Const Isn't Practical
+Also mentioned in Jason Turner's talk at CppCon 2016 ([here](https://www.youtube.com/watch?v=uzF4u9KgUWI)), this is very similar to the issue described in the IIFE section for setting values when constructing things, as opposed to constructing and then setting a value later.
+
+Consider the following:
+```
+struct Int {
+    Int(std::string t_s) {
+        m_s = t_s;
+    }
+
+    int val() const {
+        return std::atoi(m_s.c_str());
+    }
+
+    std::string m_s;
+};
+```
+
+Using initializer lists, it can be revised as:
+```
+struct Int {
+    Int(std::string t_s) : m_s{t_s}
+    {
+    }
+
+    int val() const {
+        return std::atoi(m_s.c_str());
+    }
+
+    std::string m_s;
+};
+```
