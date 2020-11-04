@@ -49,6 +49,7 @@ struct Type4 {
 };
 ```
 
+In the example below, we can observe how re-arranging members of a structure can save on memory space.
 ```
 // sizeof(Type5) = 16
 // alignof(Type5) = 4
@@ -58,9 +59,7 @@ struct Type5 {
     int number_2; // 4 bytes
     char char_2; // 1 byte
 };
-```
 
-```
 // sizeof(Type5e) = 12
 // alignof(Type5e) = 4
 struct Type5e {
@@ -71,6 +70,7 @@ struct Type5e {
 };
 ```
 
+In the example below, we can see the usage of `alignas` on the structure definition, which dictates the alignment of each member of the structure.
 ```
 // sizeof(Type6) = 16
 // alignof(Type6) = 8
@@ -80,9 +80,13 @@ struct alignas(8) Type6 {
 };
 ```
 
+## Hardware Destructive interference
+TODO
+
 ## References:
 - Jonathan Muller's talk at Meeting C++ 2018 ([video](https://www.youtube.com/watch?v=Nz9SiF0QVKY))
 - Herb Sutter's talk at NWCPP ([video](https://www.youtube.com/watch?v=L7zSU9HI-6I&feature=youtu.be))
-- [https://en.wikipedia.org/wiki/CPU\_cache
+- https://en.wikipedia.org/wiki/CPU\_cache
 - https://vorbrodt.blog/2019/04/06/data-alignment-the-c-way/
+- https://vorbrodt.blog/2019/02/02/cache-lines/
 - https://jitpaul.blog/2018/04/24/memory-alignment/
