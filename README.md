@@ -3,10 +3,11 @@ This repository serves as a personal reference made up of my experiences and lea
 
 # Table Of Content
 - General C++ Language
-  - [Performance Tips](https://github.com/knejadfard/cppnotes/blob/master/performance_tips.md)
-  - [Mutable](https://github.com/knejadfard/cppnotes/blob/master/mutable.md)
   - [Prefix and Postfix Increment/Decrement Operator](https://github.com/knejadfard/cppnotes/blob/master/incr_decr_op.md)
+  - [Mutable](https://github.com/knejadfard/cppnotes/blob/master/mutable.md)
+  - [Memory](https://github.com/knejadfard/cppnotes/blob/master/memory.md)
   - [Concurrency](https://github.com/knejadfard/cppnotes/blob/master/concurrency.md)
+  - [Performance Tips](https://github.com/knejadfard/cppnotes/blob/master/performance_tips.md)
 - Tools and Libraries
   - [LLVM Toolchain](https://github.com/knejadfard/cppnotes/blob/master/llvm_toolchain.md)
   - [Boost Libraries](https://github.com/knejadfard/cppnotes/blob/master/boost_libraries.md)
