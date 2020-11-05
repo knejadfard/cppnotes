@@ -12,3 +12,4 @@ This repository serves as a personal reference made up of my experiences and lea
 - Tools and Libraries
   - [LLVM Toolchain](https://github.com/knejadfard/cppnotes/blob/master/llvm_toolchain.md)
   - [Boost Libraries](https://github.com/knejadfard/cppnotes/blob/master/boost_libraries.md)
+  - [Profiling](https://github.com/knejadfard/cppnotes/blob/master/profiling.md)
