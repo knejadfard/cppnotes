@@ -4,6 +4,7 @@ This repository serves as a personal reference made up of my experiences and lea
 # Table Of Content
 - General C++ Language
   - [Prefix and Postfix Increment/Decrement Operator](https://github.com/knejadfard/cppnotes/blob/master/incr_decr_op.md)
+  - [Lambda Expressions](https://github.com/knejadfard/cppnotes/blob/master/lambda_expressions.md)
   - [Mutable](https://github.com/knejadfard/cppnotes/blob/master/mutable.md)
   - [Memory](https://github.com/knejadfard/cppnotes/blob/master/memory.md)
   - [Type Alias](https://github.com/knejadfard/cppnotes/blob/master/type_alias.md)
