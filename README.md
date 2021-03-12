@@ -16,3 +16,6 @@ This repository serves as a personal reference made up of my experiences and lea
   - [Profiling](https://github.com/knejadfard/cppnotes/blob/master/profiling.md)
 - Algorithms
   - [Algorithm Analysis](https://github.com/knejadfard/cppnotes/blob/master/algorithm_analysis.md)
+- Data Structures
+  - [Vector](https://github.com/knejadfard/cppnotes/blob/master/ds_vector.md)
+  - [Deque](https://github.com/knejadfard/cppnotes/blob/master/ds_deque.md)
