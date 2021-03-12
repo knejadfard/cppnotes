@@ -39,5 +39,7 @@ int main(int argc, const char * argv[]) {
 ```
 
 Compiling and running the above program yields this output:
-> 1 2 3 4 5
-> 1 2 3 4
+```
+1 2 3 4 5
+1 2 3 4
+```
