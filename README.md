@@ -12,6 +12,7 @@ This repository serves as a personal reference made up of my experiences and lea
   - [Performance Tips](general/performance_tips.md)
 - Toolchains:
   - [LLVM](toolchains/llvm.md)
+  - [QEMU](toolchains/qemu.md)
 - Libraries:
   - [Boost](libraries/boost.md)
 - Miscellaneous:
