@@ -10,9 +10,11 @@ This repository serves as a personal reference made up of my experiences and lea
   - [Type Alias](https://github.com/knejadfard/cppnotes/blob/master/type_alias.md)
   - [Concurrency](https://github.com/knejadfard/cppnotes/blob/master/concurrency.md)
   - [Performance Tips](https://github.com/knejadfard/cppnotes/blob/master/performance_tips.md)
-- Tools and Libraries
-  - [LLVM Toolchain](https://github.com/knejadfard/cppnotes/blob/master/llvm_toolchain.md)
-  - [Boost Libraries](https://github.com/knejadfard/cppnotes/blob/master/boost_libraries.md)
+- Toolchains:
+  - [LLVM](toolchains/llvm.md)
+- Libraries:
+  - [Boost](https://github.com/knejadfard/cppnotes/blob/master/boost_libraries.md)
+Miscellaneous:
   - [Profiling](https://github.com/knejadfard/cppnotes/blob/master/profiling.md)
 - Algorithms
   - [Algorithm Analysis](https://github.com/knejadfard/cppnotes/blob/master/algorithm_analysis.md)
