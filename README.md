@@ -3,21 +3,21 @@ This repository serves as a personal reference made up of my experiences and lea
 
 # Table Of Content
 - General C++ Language
-  - [Prefix and Postfix Increment/Decrement Operator](https://github.com/knejadfard/cppnotes/blob/master/incr_decr_op.md)
-  - [Lambda Expressions](https://github.com/knejadfard/cppnotes/blob/master/lambda_expressions.md)
-  - [Mutable](https://github.com/knejadfard/cppnotes/blob/master/mutable.md)
-  - [Memory](https://github.com/knejadfard/cppnotes/blob/master/memory.md)
-  - [Type Alias](https://github.com/knejadfard/cppnotes/blob/master/type_alias.md)
-  - [Concurrency](https://github.com/knejadfard/cppnotes/blob/master/concurrency.md)
-  - [Performance Tips](https://github.com/knejadfard/cppnotes/blob/master/performance_tips.md)
+  - [Prefix and Postfix Increment/Decrement Operator](general/incr_decr_op.md)
+  - [Lambda Expressions](general/lambda_expressions.md)
+  - [Mutable](general/mutable.md)
+  - [Memory](general/memory.md)
+  - [Type Alias](general/type_alias.md)
+  - [Concurrency](general/concurrency.md)
+  - [Performance Tips](general/performance_tips.md)
 - Toolchains:
   - [LLVM](toolchains/llvm.md)
 - Libraries:
-  - [Boost](https://github.com/knejadfard/cppnotes/blob/master/boost_libraries.md)
-Miscellaneous:
-  - [Profiling](https://github.com/knejadfard/cppnotes/blob/master/profiling.md)
+  - [Boost](libraries/boost.md)
+- Miscellaneous:
+  - [Profiling](miscellaneous/profiling.md)
 - Algorithms
-  - [Algorithm Analysis](https://github.com/knejadfard/cppnotes/blob/master/algorithm_analysis.md)
+  - [Algorithm Analysis](algorithms/analysis.md)
 - Data Structures
-  - [Vector](https://github.com/knejadfard/cppnotes/blob/master/ds_vector.md)
-  - [Deque](https://github.com/knejadfard/cppnotes/blob/master/ds_deque.md)
+  - [Vector](data_structures/vector.md)
+  - [Deque](data_structures/deque.md)
